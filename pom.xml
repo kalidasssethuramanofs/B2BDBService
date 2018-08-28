@@ -88,35 +88,35 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-checkstyle-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>validate</id>
-							<phase>validate</phase>
-							<configuration>
-								<configLocation>checkstyle.xml</configLocation>
-								<encoding>UTF-8</encoding>
-								<consoleOutput>true</consoleOutput>
-								<failsOnError>true</failsOnError>
-								<failOnViolation>true</failOnViolation>
-								<includeTestSourceDirectory>true</includeTestSourceDirectory>
-							</configuration>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<linkXRef>false</linkXRef>
-					</configuration>
-					<inherited>true</inherited>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+		 <pluginManagement>
+        <plugins>
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <configLocation>checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <failOnViolation>true</failOnViolation>
+                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <inherited>true</inherited>
+            </plugin>
+        </plugins>
+   	 </pluginManagement>
 
 	</build>
 
@@ -125,28 +125,24 @@
 
 	<reporting>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.0.0</version>
+			 <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.0.0</version>
+          
+          <configuration>
+          	<configLocation>checkstyle.xml</configLocation>
+          </configuration>
+          
+          <reportSets>
+            <reportSet>
+              <reports>
+                <report>checkstyle</report>
+              </reports>
+            </reportSet>
+          </reportSets>
 
-				<configuration>
-					<configLocation>checkstyle.xml</configLocation>
-				</configuration>
-
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>checkstyle</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-
-
-
-			</plugin>
+        </plugin>
 		</plugins>
 	</reporting>
-
-
 </project>

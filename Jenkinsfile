@@ -19,6 +19,15 @@ pipeline {
                 }
             }
         }
+        
+         stage ('Checkstyle Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    bat 'mvn checkstyle:checkstyle'
+                }
+            }
+        }
 
         stage ('Deployment Stage') {
             steps {
