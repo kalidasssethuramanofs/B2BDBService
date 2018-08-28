@@ -43,4 +43,14 @@ public class SignupServiceImplTest {
 		assertEquals(userId, respEnt.getCST_ID());
 	}
 
+	@Test
+	public void getUserbyIdTestFail() {
+
+		Long userId = new Long(2029726);
+		DD_B2B_CUSTOMER data = new DD_B2B_CUSTOMER(userId, "kalidass", "kalidass@gmail.com");
+		when(signupRepository.getUserbyId(userId)).thenReturn(data);
+		DD_B2B_CUSTOMER respEnt = signupService.getUserbyId(userId);
+		assertEquals(new Long(2), respEnt.getCST_ID());
+	}
+
 }
