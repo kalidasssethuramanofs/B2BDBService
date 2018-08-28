@@ -29,7 +29,7 @@
 	</properties>
 
 	<dependencies>
-  	<dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter</artifactId>
 		</dependency>
@@ -41,28 +41,35 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-  	<dependency>
-    	<groupId>org.springframework.boot</groupId>
-    	<artifactId>spring-boot-starter</artifactId>
-	</dependency>
-    <!-- dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
-	</dependency -->
-	<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-		
-		<!--  dependency>
-        <groupId>com.oracle</groupId>
-        <artifactId>ojdbc6</artifactId>
-        <version>11.2.0.3</version>
-    </dependency-->
+		<!-- dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-jpa</artifactId> 
+			</dependency -->
 
-  </dependencies>
-  
-  <dependencyManagement>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId> 
+			<version>11.2.0.3</version> </dependency -->
+
+	</dependencies>
+
+	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -73,21 +80,73 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-  
-  <build>
-      <plugins>
-          <plugin>
-              <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-maven-plugin</artifactId>
-          </plugin>
-      </plugins>
-  </build>
-  
-  <!-- repositories>
-   <repository>
-     <id>codelds</id>
-     <url>https://code.lds.org/nexus/content/groups/main-repo</url>
-   </repository>
- </repositories-->
-  
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>validate</id>
+							<phase>validate</phase>
+							<configuration>
+								<configLocation>checkstyle.xml</configLocation>
+								<encoding>UTF-8</encoding>
+								<consoleOutput>true</consoleOutput>
+								<failsOnError>true</failsOnError>
+								<failOnViolation>true</failOnViolation>
+								<includeTestSourceDirectory>true</includeTestSourceDirectory>
+							</configuration>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<linkXRef>false</linkXRef>
+					</configuration>
+					<inherited>true</inherited>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+
+	<!-- repositories> <repository> <id>codelds</id> <url>https://code.lds.org/nexus/content/groups/main-repo</url> 
+		</repository> </repositories -->
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.0.0</version>
+
+				<configuration>
+					<configLocation>checkstyle.xml</configLocation>
+				</configuration>
+
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+
+
+
+			</plugin>
+		</plugins>
+	</reporting>
+
+
 </project>

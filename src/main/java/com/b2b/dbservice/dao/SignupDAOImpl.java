@@ -14,7 +14,7 @@ public class SignupDAOImpl implements SignUpDAO {
 	}
 
 	@Override
-	public DD_B2B_CUSTOMER getUserbyId(Integer id) {
+	public DD_B2B_CUSTOMER getUserbyId(Long id) {
 		DD_B2B_CUSTOMER data = new DD_B2B_CUSTOMER();
 		return data;
 	}

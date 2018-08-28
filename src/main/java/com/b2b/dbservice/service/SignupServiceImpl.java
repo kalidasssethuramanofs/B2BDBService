@@ -18,7 +18,7 @@ public class SignupServiceImpl implements SignupService {
 	}
 
 	@Override
-	public DD_B2B_CUSTOMER getUserbyId(Integer id) {
+	public DD_B2B_CUSTOMER getUserbyId(Long id) {
 		return dao.getUserbyId(id);
 	}
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class DD_B2B_CUSTOMER implements Serializable {
 
-	private Integer CST_ID;
+	private Long CST_ID;
 
 	private String CST_EMAIL;
 
@@ -14,17 +14,17 @@ public class DD_B2B_CUSTOMER implements Serializable {
 
 	}
 
-	public DD_B2B_CUSTOMER(Integer CST_ID, String CST_EMAIL, String CST_PASSWORD) {
+	public DD_B2B_CUSTOMER(Long CST_ID, String CST_EMAIL, String CST_PASSWORD) {
 		this.CST_ID = CST_ID;
 		this.CST_EMAIL = CST_EMAIL;
 		this.CST_PASSWORD = CST_PASSWORD;
 	}
 
-	public Integer getCST_ID() {
+	public Long getCST_ID() {
 		return CST_ID;
 	}
 
-	public void setCST_ID(Integer cST_ID) {
+	public void setCST_ID(Long cST_ID) {
 		CST_ID = cST_ID;
 	}
 

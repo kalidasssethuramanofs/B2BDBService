@@ -28,7 +28,7 @@ public class DBController {
 	}
 
 	@RequestMapping(value = "/getCustomerById/{id}")
-	public ResponseEntity<DD_B2B_CUSTOMER> getUserById(@PathVariable("id") Integer id) {
+	public ResponseEntity<DD_B2B_CUSTOMER> getUserById(@PathVariable("id") Long id) {
 		DD_B2B_CUSTOMER b2bCustomer = service.getUserbyId(id);
 		return new ResponseEntity<DD_B2B_CUSTOMER>(b2bCustomer, HttpStatus.OK);
 	}

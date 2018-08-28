@@ -6,7 +6,7 @@ public interface SignupService {
 
 	DD_B2B_CUSTOMER signUp(DD_B2B_CUSTOMER user);
 
-	DD_B2B_CUSTOMER getUserbyId(Integer id);
+	DD_B2B_CUSTOMER getUserbyId(Long id);
 
 	DD_B2B_CUSTOMER signIn(DD_B2B_CUSTOMER ddB2BCustomer);
 
