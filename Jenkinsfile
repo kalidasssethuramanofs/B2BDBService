@@ -38,7 +38,7 @@ pipeline {
             }
         }
 
- 		stage('SonarQube analysis1') {
+ 		/*stage('SonarQube analysis1') {
 	     steps {
 				withSonarQubeEnv('mysonarqube') {
 				// requires SonarQube Scanner for Maven 3.2+
@@ -46,14 +46,14 @@ pipeline {
       			//bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
 				}
 			}
-  		}
+  		}*/
 
-		stage ('Deployment Stage') {
+		/*stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
                     bat 'mvn deploy'
                 }
             }
-        }
+        }*/
     }
 }
