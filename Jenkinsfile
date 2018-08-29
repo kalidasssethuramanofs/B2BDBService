@@ -46,13 +46,12 @@ pipeline {
             }
         }
        
-       /*stage('SonarQube analysis2') {
-		    withSonarQubeEnv('My SonarQube Server') {
-		      // requires SonarQube Scanner for Gradle 2.1+
-		      // It's important to add --info because of SONARJNKNS-281
-		      bat './gradlew --info sonarqube'
-		    }
-		}*/
+       stage('SonarQube analysis1') {
+    		withSonarQubeEnv('My SonarQube Server') {
+      		// requires SonarQube Scanner for Maven 3.2+
+      		bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+    		}
+  		}
        
     }
 }
