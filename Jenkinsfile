@@ -29,6 +29,15 @@ pipeline {
             }
         }
 
+ 		stage('SonarQube analysis') {
+            steps {
+                // Optionally use a Maven environment you've configured already
+                withMaven(maven: 'maven_3_5_0') {
+                    bat 'mvn sonar:sonar'
+                }
+            }
+        }
+
         //stage ('Deployment Stage') {
           //  steps {
             //    withMaven(maven : 'maven_3_5_0') {
