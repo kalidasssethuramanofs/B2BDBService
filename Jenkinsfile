@@ -29,6 +29,15 @@ pipeline {
             }
         }
 
+		stage('SonarQube analysis') {
+            steps {
+                // Optionally use a Maven environment you've configured already
+                withMaven(maven: 'maven_3_5_0') {
+                    bat 'mvn sonar:sonar'
+                }
+            }
+        }
+
 		stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
@@ -37,19 +46,11 @@ pipeline {
             }
         }*/
 
- 		stage('SonarQube analysis') {
-            steps {
-                // Optionally use a Maven environment you've configured already
-                withMaven(maven: 'maven_3_5_0') {
-                    bat 'mvn sonar:sonar'
-                }
-            }
-        }
-       
        stage('SonarQube analysis1') {
-    		withSonarQubeEnv('My SonarQube Server') {
+    		withSonarQubeEnv('mysonarqube') {
       		// requires SonarQube Scanner for Maven 3.2+
-      		bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+      		 bat 'mvn sonar:sonar'
+      			//bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
     		}
   		}
        
