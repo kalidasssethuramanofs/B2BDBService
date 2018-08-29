@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        /*stage ('Compile Stage') {
+        stage ('Compile Stage') {
 
             steps {
                 withMaven(maven : 'maven_3_5_0') {
@@ -38,15 +38,7 @@ pipeline {
             }
         }
 
-		stage ('Deployment Stage') {
-            steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn deploy'
-                }
-            }
-        }*/
-
-       stage('SonarQube analysis') {
+ 		stage('SonarQube analysis1') {
 	     steps {
 				withSonarQubeEnv('mysonarqube') {
 				// requires SonarQube Scanner for Maven 3.2+
@@ -55,6 +47,14 @@ pipeline {
 				}
 			}
   		}
+
+		stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    bat 'mvn deploy'
+                }
+            }
+        }
        
     }
 }
