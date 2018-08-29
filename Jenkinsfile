@@ -46,7 +46,7 @@ pipeline {
             }
         }*/
 
-       stage('SonarQube analysis1') {
+       stage('SonarQube analysis') {
     		withSonarQubeEnv('mysonarqube') {
       		// requires SonarQube Scanner for Maven 3.2+
       		 bat 'mvn sonar:sonar'
