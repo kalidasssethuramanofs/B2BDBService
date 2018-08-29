@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
+        /*stage ('Compile Stage') {
 
             steps {
                 withMaven(maven : 'maven_3_5_0') {
@@ -36,7 +36,7 @@ pipeline {
                     bat 'mvn sonar:sonar'
                 }
             }
-        }
+        }*/
 
         //stage ('Deployment Stage') {
           //  steps {
@@ -45,5 +45,15 @@ pipeline {
                // }
            // }
        // }
+       
+       
+       stage('SonarQube analysis') {
+		    withSonarQubeEnv('My SonarQube Server') {
+		      // requires SonarQube Scanner for Gradle 2.1+
+		      // It's important to add --info because of SONARJNKNS-281
+		      bat './gradlew --info sonarqube'
+		    }
+		}
+       
     }
 }
