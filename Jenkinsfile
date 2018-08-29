@@ -29,6 +29,14 @@ pipeline {
             }
         }
 
+		stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    bat 'mvn deploy'
+                }
+            }
+        }*/
+
  		stage('SonarQube analysis') {
             steps {
                 // Optionally use a Maven environment you've configured already
@@ -36,24 +44,15 @@ pipeline {
                     bat 'mvn sonar:sonar'
                 }
             }
-        }*/
-
-        //stage ('Deployment Stage') {
-          //  steps {
-            //    withMaven(maven : 'maven_3_5_0') {
-              //      bat 'mvn deploy'
-               // }
-           // }
-       // }
+        }
        
-       
-       stage('SonarQube analysis') {
+       /*stage('SonarQube analysis2') {
 		    withSonarQubeEnv('My SonarQube Server') {
 		      // requires SonarQube Scanner for Gradle 2.1+
 		      // It's important to add --info because of SONARJNKNS-281
 		      bat './gradlew --info sonarqube'
 		    }
-		}
+		}*/
        
     }
 }
