@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-       /* stage ('Testing Stage') {
+        stage ('Testing Stage') {
 
             steps {
                 withMaven(maven : 'maven_3_5_0') {
@@ -46,14 +46,14 @@ pipeline {
       			//bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
 				}
 			}
-  		}*/
+  		}
 
-		stage ('Deployment Stage') {
+		/*stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven_3_5_0') {
                     bat 'mvn deploy'
                 }
             }
-        }
+        }*/
     }
 }
